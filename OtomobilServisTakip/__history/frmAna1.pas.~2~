@@ -140,7 +140,6 @@ begin
 procedure TfrmAna.GiriiSil1Click(Sender: TObject);
 begin
  ADOQuery1.Delete;
- Button2Click(sender);
 end;
 
 procedure TfrmAna.ProgramSonlandr1Click(Sender: TObject);

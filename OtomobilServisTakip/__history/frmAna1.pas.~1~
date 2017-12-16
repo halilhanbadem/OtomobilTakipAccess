@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, Vcl.Grids,
-  Vcl.DBGrids, Data.Win.ADODB, Vcl.Menus;
+  Vcl.DBGrids, Data.Win.ADODB;
 
 type
   TfrmAna = class(TForm)
@@ -31,18 +31,11 @@ type
     DataSource1: TDataSource;
     ADOQuery1: TADOQuery;
     ADOConnection1: TADOConnection;
-    GridPopup: TPopupMenu;
-    GiriiSil1: TMenuItem;
-    ProgramSonlandr1: TMenuItem;
-    N1: TMenuItem;
     procedure Button2Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure DBGrid1DblClick(Sender: TObject);
-    procedure ProgramSonlandr1Click(Sender: TObject);
-    procedure GiriiSil1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -115,14 +108,6 @@ begin
  end;
 end;
 
-procedure TfrmAna.DBGrid1DblClick(Sender: TObject);
-begin
- Memo1.Lines.Text := ADOQuery1.FieldByName('aracSikayet').AsString;
- Memo2.Lines.Text := ADOQuery1.FieldByName('aracYapilanlar').AsString;
- Edit1.Text := ADOQuery1.FieldByName('aracPlaka').AsString;
- Edit2.Text := ADOQuery1.FieldByName('aracSase').AsString;
-end;
-
 procedure TfrmAna.FormCreate(Sender: TObject);
 begin
  ADOConnection1.ConnectionString := 'Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source='+ExtractFilePath(Application.ExeName)+'\Data\data.mdb;Mode=Share Deny None;Jet OLEDB:System database=""'+
@@ -136,16 +121,5 @@ begin
  DataSource1.DataSet := ADOQuery1;
  DBGrid1.DataSource := DataSource1;
  end;
-
-procedure TfrmAna.GiriiSil1Click(Sender: TObject);
-begin
- ADOQuery1.Delete;
- Button2Click(sender);
-end;
-
-procedure TfrmAna.ProgramSonlandr1Click(Sender: TObject);
-begin
-Application.Terminate;
-end;
 
 end.

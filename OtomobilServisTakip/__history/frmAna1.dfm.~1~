@@ -160,14 +160,12 @@ object frmAna: TfrmAna
     Height = 168
     Align = alBottom
     DataSource = DataSource1
-    PopupMenu = GridPopup
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
-    OnDblClick = DBGrid1DblClick
     Columns = <
       item
         Expanded = False
@@ -214,21 +212,5 @@ object frmAna: TfrmAna
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 592
     Top = 280
-  end
-  object GridPopup: TPopupMenu
-    Left = 456
-    Top = 208
-    object GiriiSil1: TMenuItem
-      Caption = 'Giri'#351'i Sil'
-      ShortCut = 46
-      OnClick = GiriiSil1Click
-    end
-    object N1: TMenuItem
-      Caption = '-'
-    end
-    object ProgramSonlandr1: TMenuItem
-      Caption = 'Program'#305' Sonland'#305'r'
-      OnClick = ProgramSonlandr1Click
-    end
   end
 end
